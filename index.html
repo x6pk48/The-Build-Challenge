@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Analytics Hub | AI-Powered Insights</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">Feedback Analytics Hub</span>
+                    <span class="logo-badge">AI-Powered</span>
+                </div>
+            </div>
+            <div class="nav-stats">
+                <div class="nav-stat">
+                    <span class="nav-stat-label">Last Updated</span>
+                    <span class="nav-stat-value" id="lastUpdated">Just now</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-badge">✨ Real-time Insights</div>
+            <h1 class="hero-title">
+                Transform Customer Feedback
+                <span class="gradient-text">Into Actionable Intelligence</span>
+            </h1>
+            <p class="hero-subtitle">
+                AI-powered analysis that automatically prioritizes, categorizes, and recommends solutions
+                for your customer feedback across all channels.
+            </p>
+        </div>
+
+        <div class="stats-dashboard" id="stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 12V8H4V12M20 12L4 12M20 12L22 12M4 12L2 12M12 4V2M12 4H8M12 4H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <rect x="3" y="12" width="18" height="9" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                        <path d="M7 15H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalCount">0</div>
+                    <div class="stat-label">Total Feedback</div>
+                    <div class="stat-trend">+12% this week</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 4V2M12 4H8M12 4H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="highPriorityCount">0</div>
+                    <div class="stat-label">High Priority</div>
+                    <div class="stat-trend urgent">Requires immediate attention</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="negativeSentimentCount">0</div>
+                    <div class="stat-label">Negative Sentiment</div>
+                    <div class="stat-trend warning">Needs investigation</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.5 2C6.5 3 4 6 4 9.5C4 13.5 7 16 11 16" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M19 19L22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="analyzedCount">0</div>
+                    <div class="stat-label">Analyzed Items</div>
+                    <div class="stat-trend">AI processed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label class="filter-label">Priority</label>
+                    <select id="priorityFilter" class="filter-select">
+                        <option value="all">All Priorities</option>
+                        <option value="high">🔴 High Priority</option>
+                        <option value="medium">🟡 Medium Priority</option>
+                        <option value="low">🟢 Low Priority</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Sentiment</label>
+                    <select id="sentimentFilter" class="filter-select">
+                        <option value="all">All Sentiments</option>
+                        <option value="positive">😊 Positive</option>
+                        <option value="neutral">😐 Neutral</option>
+                        <option value="negative">😞 Negative</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Sort By</label>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="recent">Most Recent</option>
+                        <option value="priority">Priority (High to Low)</option>
+                        <option value="urgency">Urgency Score</option>
+                    </select>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="analyzeBtn" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Run AI Analysis
+                </button>
+                <button id="suggestBtn" class="btn btn-warning">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 16H12.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    Generate Suggestions
+                </button>
+                <button id="refreshBtn" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 12C1 12 4 4 12 4C20 4 23 12 23 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M23 12C23 12 20 20 12 20C4 20 1 12 1 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 8L12 4L16 6L12 8Z" fill="currentColor"/>
+                    </svg>
+                    Refresh
+                </button>
+                <button id="recommendBtn" class="btn btn-success">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15 8H22L16 12L19 18L12 14L5 18L8 12L2 8H9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="currentColor"/>
+                    </svg>
+                    Get Recommendations
+                </button>
+                <button id="addTestBtn" class="btn btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    Add Test Data
+                </button>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <div class="section-header">
+                <h2>📋 Aggregated Feedback</h2>
+                <p>AI-analyzed feedback with priority scores and sentiment analysis</p>
+            </div>
+            <div id="feedbackGrid" class="feedback-grid">
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Loading feedback data...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="suggestions" class="suggestions-section" style="display: none;">
+            <div class="section-header">
+                <div class="section-icon">💡</div>
+                <h2>AI-Powered Suggestions</h2>
+                <p>Actionable suggestions generated from analysis patterns</p>
+            </div>
+            <div id="suggestionsList" class="suggestions-list"></div>
+        </div>
+
+        <div id="recommendations" class="recommendations-section" style="display: none;">
+            <div class="section-header">
+                <div class="section-icon">🎯</div>
+                <h2>Strategic Recommendations</h2>
+                <p>Data-driven recommendations for product improvement</p>
+            </div>
+            <div id="recommendationsList" class="recommendations-list"></div>
+        </div>
+    </div>
+
+    <script src="public/js/app.js"></script>
+</body>
+</html>
